@@ -3,12 +3,23 @@ import { projects, ui } from "../content.js";
 function Media({ media, emoji, accent, lang }) {
   const base =
     "relative mt-4 aspect-video w-full overflow-hidden rounded-xl border border-white/10 bg-ink";
+  // Use "contain" for vertical / portrait media so it fits fully inside
+  // the horizontal frame (with a soft blurred backdrop) instead of cropping.
+  const contain = media?.fit === "contain";
+  const fitClass = contain ? "object-contain" : "object-cover";
 
   if (media?.src && media.type === "video") {
     return (
       <div className={base}>
+        {contain && media.poster && (
+          <img
+            src={media.poster}
+            aria-hidden
+            className="absolute inset-0 h-full w-full scale-110 object-cover opacity-30 blur-xl"
+          />
+        )}
         <video
-          className="h-full w-full object-cover"
+          className={`relative h-full w-full ${fitClass}`}
           src={media.src}
           poster={media.poster || undefined}
           controls
@@ -24,11 +35,18 @@ function Media({ media, emoji, accent, lang }) {
   if (media?.src && media.type === "image") {
     return (
       <div className={base}>
+        {contain && (
+          <img
+            src={media.src}
+            aria-hidden
+            className="absolute inset-0 h-full w-full scale-110 object-cover opacity-30 blur-xl"
+          />
+        )}
         <img
           src={media.src}
           alt=""
-          className="h-full w-full object-cover"
           loading="lazy"
+          className={`relative h-full w-full ${fitClass}`}
         />
       </div>
     );

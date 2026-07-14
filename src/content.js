@@ -100,7 +100,7 @@ export const projects = [
       en: "AI agent trained with deep reinforcement learning to learn how to play Pac-Man.",
     },
     link: "",
-    media: { type: "image", src: "/videos/pacman.gif", poster: "" },
+    media: { type: "image", src: "/videos/pacman.gif", poster: "", fit: "contain" },
   },
   {
     id: "chatbot",
