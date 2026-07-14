@@ -6,7 +6,12 @@
 
 export const profile = {
   name: "Victor Goudal",
-  location: { fr: "New York, USA", en: "New York, USA" },
+  location: {
+    current: { fr: "Marseille, France", en: "Marseille, France" },
+    // Cities you'd like to relocate to
+    open: ["Paris, France", "New York, USA"],
+    openLabel: { fr: "Ouvert à", en: "Open to" },
+  },
   // Replace with your own photo: drop a file in /public and use "/photo.jpg"
   photo: "",
   role: {

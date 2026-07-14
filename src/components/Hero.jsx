@@ -31,11 +31,29 @@ export default function Hero({ lang }) {
           <h1 className="text-4xl font-extrabold leading-tight tracking-tight text-white sm:text-6xl">
             {profile.name}
           </h1>
-          {profile.location?.[lang] && (
-            <p className="mt-3 flex items-center gap-2 text-sm text-gray-400">
-              <span aria-hidden>📍</span>
-              {profile.location[lang]}
-            </p>
+          {profile.location && (
+            <div className="mt-3 flex flex-wrap items-center gap-x-3 gap-y-2 text-sm text-gray-400">
+              <span className="flex items-center gap-2">
+                <span aria-hidden>📍</span>
+                {profile.location.current[lang]}
+              </span>
+              {profile.location.open?.length > 0 && (
+                <span className="flex flex-wrap items-center gap-2">
+                  <span className="text-gray-600">·</span>
+                  <span className="text-gray-500">
+                    {profile.location.openLabel[lang]}
+                  </span>
+                  {profile.location.open.map((city) => (
+                    <span
+                      key={city}
+                      className="rounded-full border border-indigo-400/30 bg-indigo-500/10 px-3 py-0.5 text-xs font-medium text-indigo-300"
+                    >
+                      {city}
+                    </span>
+                  ))}
+                </span>
+              )}
+            </div>
           )}
           <p className="mt-6 max-w-xl text-lg text-gray-300">
             {profile.tagline[lang]}
