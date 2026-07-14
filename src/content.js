@@ -206,6 +206,7 @@ export const ui = {
   },
   hero: {
     cta_projects: { fr: "Voir les projets", en: "View projects" },
+    cta_research: { fr: "Voir les études", en: "View research" },
     cta_contact: { fr: "Me contacter", en: "Get in touch" },
     scroll: { fr: "Faites défiler", en: "Scroll down" },
   },
