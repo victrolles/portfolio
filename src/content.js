@@ -77,19 +77,21 @@ export const projects = [
     link: "https://github.com/victrolles/Trackmania-DL-RL",
     media: { type: "image", src: "/videos/trackmania.gif", poster: "" },
   },
-  {
-    id: "snake-rl",
-    emoji: "🐍",
-    title: { fr: "Snake — Deep RL", en: "Snake — Deep RL" },
-    stack: ["Deep RL", "DQN", "Python"],
-    accent: "from-amber-500 to-orange-500",
-    description: {
-      fr: "Agent d'IA entraîné par deep reinforcement learning pour apprendre à jouer au jeu Snake.",
-      en: "AI agent trained with deep reinforcement learning to learn how to play the Snake game.",
-    },
-    link: "https://github.com/victrolles/SnakeGame-DeepQLearning-Pytorch",
-    media: { type: "image", src: "/videos/snake.png", poster: "", fit: "contain" },
-  },
+  // Snake — Deep RL: temporarily hidden to avoid having too many deep-RL
+  // game projects (Trackmania, Snake, Pac-Man). Uncomment to bring it back.
+  // {
+  //   id: "snake-rl",
+  //   emoji: "🐍",
+  //   title: { fr: "Snake — Deep RL", en: "Snake — Deep RL" },
+  //   stack: ["Deep RL", "DQN", "Python"],
+  //   accent: "from-amber-500 to-orange-500",
+  //   description: {
+  //     fr: "Agent d'IA entraîné par deep reinforcement learning pour apprendre à jouer au jeu Snake.",
+  //     en: "AI agent trained with deep reinforcement learning to learn how to play the Snake game.",
+  //   },
+  //   link: "https://github.com/victrolles/SnakeGame-DeepQLearning-Pytorch",
+  //   media: { type: "image", src: "/videos/snake.png", poster: "", fit: "contain" },
+  // },
   {
     id: "pacman-rl",
     emoji: "👾",
@@ -131,6 +133,19 @@ export const projects = [
     },
     link: "https://github.com/victrolles/ChatBot",
     media: { type: "image", src: "/videos/chatbot_on_kubernetes.png", poster: "" },
+  },
+  {
+    id: "rock-segmentation",
+    emoji: "🪨",
+    title: { fr: "Segmentation de roches", en: "Rock segmentation" },
+    stack: ["Computer Vision", "OpenCV", "scikit-image", "Python"],
+    accent: "from-stone-500 to-amber-600",
+    description: {
+      fr: "Pipeline de vision par ordinateur pour segmenter de très petites roches, de la taille de grains de sable, à destination des sociétés minières. Le traitement combine conversion en niveaux de gris, rehaussement de contraste local (CLAHE), seuillage (Otsu et adaptatif) et opérations morphologiques, puis une segmentation par watershed guidée par les contours de Sobel afin de séparer les grains qui se touchent. Chaque grain est ensuite détecté, entouré et numéroté.",
+      en: "Computer-vision pipeline to segment very small rocks, down to sand-grain size, for mining companies. The processing combines grayscale conversion, local contrast enhancement (CLAHE), thresholding (Otsu and adaptive) and morphological operations, followed by a Sobel-edge-guided watershed segmentation to separate touching grains. Each grain is then detected, outlined and numbered.",
+    },
+    link: "",
+    media: { type: "image", src: "/videos/rock_segmentation.png", poster: "", fit: "contain" },
   },
 ];
 
