@@ -1,6 +1,0 @@
-Initial portfolio: bilingual FR/EN single-page site
-
-React + Vite + Tailwind CSS one-page portfolio with a Projects section
-(Polymatic, Trackmania, chatbot, Snake) and a Studies section (FSDP
-benchmark, NVFP4 quantization, LLMs, CUDA matmul). Includes language
-switch, scroll-reveal animations, and Vercel deploy config.
