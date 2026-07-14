@@ -9,20 +9,12 @@ export const profile = {
   location: {
     current: { fr: "Marseille, France", en: "Marseille, France" },
     // Cities you'd like to relocate to (edit / reorder freely)
-    open: [
-      "Paris, France",
-      "London, UK",
-      "Amsterdam, NL",
-      "Zurich, CH",
-      "New York, USA",
-      "San Francisco, USA",
-      "Montreal, Canada",
-    ],
+    open: ["Paris, France", "New York, USA"],
     openLabel: { fr: "Ouvert à", en: "Open to" },
     // Optional closing note; set to null to hide
     note: {
-      fr: "& mobilité internationale",
-      en: "& open to relocate worldwide",
+      fr: "& autres hubs tech",
+      en: "& other tech hubs",
     },
   },
   // Replace with your own photo: drop a file in /public and use "/photo.jpg"
