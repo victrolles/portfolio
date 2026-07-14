@@ -169,8 +169,8 @@ export const studies = [
       url: "https://dp2eai-2026.cri.minesparis.psl.eu/program/#navbar",
       label: { fr: "Présenté à DP2E-AI", en: "Presented at DP2E-AI" },
       detail: {
-        fr: "le 19 juin 2026 à 16h10, par mon encadrant de stage Géraud Krawezik",
-        en: "on June 19, 2026 at 4:10 PM, by my internship supervisor Géraud Krawezik",
+        fr: "le 29 juin 2026 à 16h10, par mon encadrant de stage Géraud Krawezik",
+        en: "on June 29, 2026 at 4:10 PM, by my internship supervisor Géraud Krawezik",
       },
     },
   },
