@@ -56,7 +56,10 @@ export default function Studies({ lang }) {
                     rel="noreferrer"
                     className="shrink-0 self-start rounded-lg border border-white/15 px-4 py-2 text-sm font-semibold text-white transition hover:bg-white/10"
                   >
-                    {ui.actions.read[lang]} →
+                    {s.link.includes("github.com")
+                      ? "GitHub"
+                      : ui.actions.read[lang]}{" "}
+                    →
                   </a>
                 )}
               </div>

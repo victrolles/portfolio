@@ -192,7 +192,7 @@ export const studies = [
       fr: "Optimisation de la multiplication de matrices en CUDA : tiling, mémoire partagée et coalescence pour maximiser le débit du GPU.",
       en: "Optimizing matrix multiplication in CUDA: tiling, shared memory and coalescing to maximize GPU throughput.",
     },
-    link: "",
+    link: "https://github.com/victrolles/cudaProgramming",
   },
 ];
 
