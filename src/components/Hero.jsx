@@ -31,6 +31,12 @@ export default function Hero({ lang }) {
           <h1 className="text-4xl font-extrabold leading-tight tracking-tight text-white sm:text-6xl">
             {profile.name}
           </h1>
+          {profile.location?.[lang] && (
+            <p className="mt-3 flex items-center gap-2 text-sm text-gray-400">
+              <span aria-hidden>📍</span>
+              {profile.location[lang]}
+            </p>
+          )}
           <p className="mt-6 max-w-xl text-lg text-gray-300">
             {profile.tagline[lang]}
           </p>

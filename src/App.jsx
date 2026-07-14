@@ -28,6 +28,11 @@ export default function App() {
       <Nav lang={lang} setLang={setLang} />
       <main>
         <Hero lang={lang} />
+        <section className="border-y border-white/5 bg-ink-soft/50 px-6 py-16">
+          <p className="reveal mx-auto max-w-3xl text-center text-lg leading-relaxed text-gray-300">
+            {profile.about[lang]}
+          </p>
+        </section>
         <Projects lang={lang} />
         <Studies lang={lang} />
         <Contact lang={lang} />

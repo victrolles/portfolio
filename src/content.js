@@ -5,26 +5,27 @@
 // ─────────────────────────────────────────────────────────────
 
 export const profile = {
-  name: "Your Name",
+  name: "Victor Goudal",
+  location: { fr: "New York, USA", en: "New York, USA" },
   // Replace with your own photo: drop a file in /public and use "/photo.jpg"
   photo: "",
   role: {
-    fr: "Développeur & chercheur en Machine Learning",
-    en: "Developer & Machine Learning researcher",
+    fr: "Ingénieur AI & HPC — Deep Learning distribué & systèmes GPU",
+    en: "AI & HPC Engineer — Distributed Deep Learning & GPU systems",
   },
   tagline: {
-    fr: "Je construis des sites web et j'explore l'optimisation des systèmes ML — du front-end aux kernels CUDA.",
-    en: "I build web experiences and dig into ML systems optimization — from front-end to CUDA kernels.",
+    fr: "J'entraîne et j'optimise des modèles de ML à grande échelle sur des clusters GPU — du benchmark bas niveau au déploiement end-to-end, avec un goût prononcé pour le web.",
+    en: "I train and optimize ML models at scale on GPU clusters — from low-level benchmarking to end-to-end deployment, with a strong taste for the web.",
   },
   about: {
-    fr: "Passionné par le web et le calcul haute performance, je navigue entre le développement d'applications interactives et la recherche appliquée (entraînement distribué, quantization, LLMs). Vous trouverez ci-dessous mes projets et mes études.",
-    en: "Passionate about the web and high-performance computing, I move between building interactive applications and applied research (distributed training, quantization, LLMs). Below are my projects and studies.",
+    fr: "Jeune professionnel en AI & HPC, actuellement Research Analyst au Flatiron Institute (Simons Foundation) à New York. Solide expérience en deep learning distribué (DDP, FSDP), environnements HPC et benchmarking GPU sur supercalculateurs. J'aime construire et évaluer des pipelines ML end-to-end, avec un focus sur la scalabilité, l'efficacité et le déploiement réel. Étudiant en double diplôme UTBM (France) & UQAC (Canada), spécialisé en IA.",
+    en: "AI & HPC young professional, currently a Research Analyst at the Flatiron Institute (Simons Foundation) in New York. Strong background in distributed deep learning (DDP, FSDP), HPC environments and GPU benchmarking on supercomputing systems. I love building and benchmarking end-to-end ML pipelines, with a focus on scalability, efficiency and real-world deployment. Dual-degree student at UTBM (France) & UQAC (Canada), specialized in AI.",
   },
   // Add or remove links freely
   links: {
-    github: "https://github.com/",
-    linkedin: "",
-    email: "mailto:you@example.com",
+    github: "https://github.com/victrolles",
+    linkedin: "https://www.linkedin.com/in/victorgoudal07",
+    email: "mailto:vi.goudal@gmail.com",
     // Put your CV file in /public and set "/cv.pdf"
     cv: "",
   },
