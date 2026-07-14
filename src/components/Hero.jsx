@@ -51,6 +51,11 @@ export default function Hero({ lang }) {
                       {city}
                     </span>
                   ))}
+                  {profile.location.note?.[lang] && (
+                    <span className="text-xs italic text-gray-500">
+                      {profile.location.note[lang]}
+                    </span>
+                  )}
                 </span>
               )}
             </div>
