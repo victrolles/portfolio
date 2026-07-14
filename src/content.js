@@ -73,7 +73,7 @@ export const projects = [
       fr: "Agent d'IA entraîné par deep reinforcement learning pour piloter et boucler des circuits dans Trackmania.",
       en: "AI agent trained with deep reinforcement learning to drive and complete tracks in Trackmania.",
     },
-    link: "",
+    link: "https://github.com/victrolles/Trackmania-DL-RL",
     media: { type: "image", src: "/videos/trackmania.gif", poster: "" },
   },
   {
@@ -86,7 +86,7 @@ export const projects = [
       fr: "Agent d'IA entraîné par deep reinforcement learning pour apprendre à jouer au jeu Snake.",
       en: "AI agent trained with deep reinforcement learning to learn how to play the Snake game.",
     },
-    link: "",
+    link: "https://github.com/victrolles/SnakeGame-DeepQLearning-Pytorch",
     media: { type: "video", src: "", poster: "" },
   },
   {
@@ -128,7 +128,7 @@ export const projects = [
       fr: "Assistant conversationnel (LLM) déployé sur un cluster Kubernetes avec des GPU locaux, pour une inférence auto-hébergée, scalable et maîtrisée de bout en bout.",
       en: "Conversational assistant (LLM) deployed on a Kubernetes cluster with local GPUs, for self-hosted, scalable, end-to-end inference.",
     },
-    link: "",
+    link: "https://github.com/victrolles/ChatBot",
     media: { type: "image", src: "/videos/chatbot_on_kubernetes.png", poster: "" },
   },
 ];

@@ -126,7 +126,10 @@ export default function Projects({ lang }) {
                   rel="noreferrer"
                   className="mt-5 inline-flex items-center gap-1 text-sm font-semibold text-indigo-400 transition hover:text-indigo-300"
                 >
-                  {ui.actions.visit[lang]} →
+                  {p.link.includes("github.com")
+                    ? "GitHub"
+                    : ui.actions.visit[lang]}{" "}
+                  →
                 </a>
               )}
             </article>
