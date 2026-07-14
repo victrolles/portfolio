@@ -160,8 +160,8 @@ export const studies = [
     tags: ["Quantization", "FP4", "Inference"],
     accent: "from-violet-500 to-purple-500",
     description: {
-      fr: "Analyse de la quantization NVFP4 : compromis entre précision numérique, taille mémoire et vitesse d'inférence.",
-      en: "Analysis of NVFP4 quantization: trade-offs between numerical precision, memory size and inference speed.",
+      fr: "Analyse de la quantization NVFP4 : compromis entre accuracy du modèle, empreinte mémoire et vitesse d'inférence. On y étudie pourquoi la qualité du modèle est largement préservée alors même que la précision numérique est divisée par 4.",
+      en: "Analysis of NVFP4 quantization: trade-offs between model accuracy, memory footprint and inference speed. We study why model quality is largely preserved even though numerical precision is divided by four.",
     },
     link: "",
     soon: "article",
