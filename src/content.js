@@ -58,7 +58,7 @@ export const projects = [
       en: "Internal demo interface prototype built for Polymathic AI (Simons Foundation / Flatiron Institute). It lets users test and showcase their scientific foundation models: you provide an input (e.g. an astronomy image) and the model returns a prediction (e.g. the redshift). Spans domains such as astronomy and biology.",
     },
     link: "",
-    media: { type: "image", src: "", poster: "" },
+    media: { type: "image", src: "/videos/polymathic.jpg", poster: "" },
   },
   {
     id: "trackmania-rl",
@@ -74,7 +74,7 @@ export const projects = [
       en: "AI agent trained with deep reinforcement learning to drive and complete tracks in Trackmania.",
     },
     link: "",
-    media: { type: "video", src: "", poster: "" },
+    media: { type: "image", src: "/videos/trackmania.gif", poster: "" },
   },
   {
     id: "snake-rl",
@@ -114,6 +114,22 @@ export const projects = [
     },
     link: "",
     media: { type: "video", src: "", poster: "" },
+  },
+  {
+    id: "chatbot-k8s",
+    emoji: "☸️",
+    title: {
+      fr: "Chatbot sur Kubernetes",
+      en: "Chatbot on Kubernetes",
+    },
+    stack: ["LLM", "Kubernetes", "GPU"],
+    accent: "from-blue-500 to-cyan-500",
+    description: {
+      fr: "Assistant conversationnel (LLM) déployé sur un cluster Kubernetes avec des GPU locaux, pour une inférence auto-hébergée, scalable et maîtrisée de bout en bout.",
+      en: "Conversational assistant (LLM) deployed on a Kubernetes cluster with local GPUs, for self-hosted, scalable, end-to-end inference.",
+    },
+    link: "",
+    media: { type: "image", src: "/videos/chatbot_on_kubernetes.png", poster: "" },
   },
 ];
 
