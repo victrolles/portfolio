@@ -46,6 +46,26 @@ export default function Studies({ lang }) {
                         </span>
                       ))}
                     </div>
+
+                    {s.presented && (
+                      <a
+                        href={s.presented.url}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="mt-4 inline-flex items-center gap-2 text-sm text-gray-400 transition hover:text-white"
+                      >
+                        <span aria-hidden>🎤</span>
+                        <span>
+                          <span className="font-semibold text-gray-200">
+                            {s.presented.label[lang]}
+                          </span>
+                          {s.presented.detail?.[lang] && (
+                            <span> — {s.presented.detail[lang]}</span>
+                          )}
+                        </span>
+                        <span aria-hidden>↗</span>
+                      </a>
+                    )}
                   </div>
                 </div>
 

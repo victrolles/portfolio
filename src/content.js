@@ -165,6 +165,14 @@ export const studies = [
     },
     link: "",
     soon: "article",
+    presented: {
+      url: "https://dp2eai-2026.cri.minesparis.psl.eu/program/#navbar",
+      label: { fr: "Présenté à DP2E-AI", en: "Presented at DP2E-AI" },
+      detail: {
+        fr: "lundi 16h10, par mon mentor Géraud Krawezik",
+        en: "Monday 4:10 PM, by my mentor Géraud Krawezik",
+      },
+    },
   },
   {
     id: "llm",
