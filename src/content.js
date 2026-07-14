@@ -54,8 +54,8 @@ export const projects = [
     stack: ["React", "Inference", "Science"],
     accent: "from-indigo-500 to-blue-500",
     description: {
-      fr: "Prototype d'interface de démonstration déployé en interne pour Polymathic AI (Simons Foundation / Flatiron Institute). Il permet de tester et de mettre en valeur leurs foundation models scientifiques : l'utilisateur fournit une entrée (par ex. une image astronomique) et le modèle renvoie une prédiction (par ex. le redshift). Couvre plusieurs domaines comme l'astronomie et la biologie.",
-      en: "Internal demo interface prototype built for Polymathic AI (Simons Foundation / Flatiron Institute). It lets users test and showcase their scientific foundation models: you provide an input (e.g. an astronomy image) and the model returns a prediction (e.g. the redshift). Spans domains such as astronomy and biology.",
+      fr: "Prototype d'interface de démonstration déployé en interne pour Polymathic AI (Simons Foundation / Flatiron Institute), pour mettre en valeur leurs foundation models scientifiques. Le chercheur configure son modèle et définit un sous-ensemble de données dans lequel on sélectionne un échantillon ; le modèle renvoie alors sa prédiction et l'ensemble des sorties configurées par le chercheur. Couvre plusieurs domaines comme l'astronomie et la biologie.",
+      en: "Internal demo interface prototype built for Polymathic AI (Simons Foundation / Flatiron Institute) to showcase their scientific foundation models. A researcher configures their model and defines a data subset from which a sample is selected; the model then returns its prediction along with every output the researcher configured. Spans domains such as astronomy and biology.",
     },
     link: "",
     media: { type: "image", src: "/videos/polymathic.jpg", poster: "" },
