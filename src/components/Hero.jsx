@@ -73,7 +73,7 @@ export default function Hero({ lang }) {
             </a>
             <a
               href="#studies"
-              className="rounded-xl bg-blue-500 px-6 py-3 font-semibold text-white shadow-lg shadow-blue-500/30 transition hover:bg-blue-400"
+              className="rounded-xl bg-white/10 px-6 py-3 font-semibold text-white ring-1 ring-white/15 transition hover:bg-white/20"
             >
               {ui.hero.cta_research[lang]}
             </a>
