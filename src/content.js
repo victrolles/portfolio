@@ -177,7 +177,7 @@ export const studies = [
       fr: "Exploration du fonctionnement des grands modèles de langage : architecture, comportement et méthodes d'évaluation.",
       en: "Exploration of how large language models work: architecture, behavior and evaluation methods.",
     },
-    link: "",
+    link: "/reports/llm-study.pdf",
   },
   {
     id: "cuda-matmul",
