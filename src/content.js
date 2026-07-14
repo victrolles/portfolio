@@ -99,7 +99,7 @@ export const projects = [
       fr: "Agent d'IA entraîné par deep reinforcement learning pour apprendre à jouer à Pac-Man.",
       en: "AI agent trained with deep reinforcement learning to learn how to play Pac-Man.",
     },
-    link: "",
+    link: "https://github.com/victrolles/Atari-Imitation-Learning",
     media: { type: "image", src: "/videos/pacman.gif", poster: "", fit: "contain" },
   },
   {
