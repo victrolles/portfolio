@@ -119,7 +119,7 @@ export default function Projects({ lang }) {
                 ))}
               </div>
 
-              {p.link && (
+              {p.link ? (
                 <a
                   href={p.link}
                   target="_blank"
@@ -131,6 +131,13 @@ export default function Projects({ lang }) {
                     : ui.actions.visit[lang]}{" "}
                   →
                 </a>
+              ) : (
+                p.soon === "link" && (
+                  <span className="mt-5 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-gray-400">
+                    <span className="h-1.5 w-1.5 rounded-full bg-amber-400" />
+                    {ui.actions.link_soon[lang]}
+                  </span>
+                )
               )}
             </article>
           ))}

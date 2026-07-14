@@ -58,6 +58,7 @@ export const projects = [
       en: "Internal demo interface prototype built for Polymathic AI (Simons Foundation / Flatiron Institute) to showcase their scientific foundation models. A researcher configures their model and defines a data subset from which a sample is selected; the model then returns its prediction along with every output the researcher configured. Spans domains such as astronomy and biology.",
     },
     link: "",
+    soon: "link",
     media: { type: "image", src: "/videos/polymathic.jpg", poster: "" },
   },
   {
@@ -163,6 +164,7 @@ export const studies = [
       en: "Analysis of NVFP4 quantization: trade-offs between numerical precision, memory size and inference speed.",
     },
     link: "",
+    soon: "article",
   },
   {
     id: "llm",
@@ -229,6 +231,11 @@ export const ui = {
     read: { fr: "Lire l'étude", en: "Read study" },
     cv: { fr: "Télécharger le CV", en: "Download CV" },
     demo_soon: { fr: "Démo à venir", en: "Demo coming soon" },
+    link_soon: { fr: "Lien disponible bientôt", en: "Link available soon" },
+    article_soon: {
+      fr: "Article disponible bientôt",
+      en: "Article available soon",
+    },
   },
   footer: {
     built: {

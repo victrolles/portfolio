@@ -49,7 +49,7 @@ export default function Studies({ lang }) {
                   </div>
                 </div>
 
-                {s.link && (
+                {s.link ? (
                   <a
                     href={s.link}
                     target="_blank"
@@ -61,6 +61,13 @@ export default function Studies({ lang }) {
                       : ui.actions.read[lang]}{" "}
                     →
                   </a>
+                ) : (
+                  s.soon === "article" && (
+                    <span className="inline-flex shrink-0 items-center gap-2 self-start rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-gray-400">
+                      <span className="h-1.5 w-1.5 rounded-full bg-amber-400" />
+                      {ui.actions.article_soon[lang]}
+                    </span>
+                  )
                 )}
               </div>
             </article>
