@@ -24,12 +24,12 @@ export const profile = {
     en: "AI & HPC Engineer — Distributed Deep Learning & GPU systems",
   },
   tagline: {
-    fr: "J'entraîne et j'optimise des modèles de ML à grande échelle sur des clusters GPU — du benchmark bas niveau au déploiement end-to-end, avec un goût prononcé pour le web.",
-    en: "I train and optimize ML models at scale on GPU clusters — from low-level benchmarking to end-to-end deployment, with a strong taste for the web.",
+    fr: "Passionné à l'origine par le reinforcement learning, je me suis spécialisé dans l'entraînement et l'inférence de LLM à grande échelle sur clusters GPU. Du benchmark bas niveau au déploiement end-to-end.",
+    en: "Originally passionate about reinforcement learning, I specialized in training and serving LLMs at scale on GPU clusters. From low-level benchmarking to end-to-end deployment.",
   },
   about: {
-    fr: "Jeune professionnel en AI & HPC, actuellement Research Analyst au Flatiron Institute (Simons Foundation) à New York. Solide expérience en deep learning distribué (DDP, FSDP), environnements HPC et benchmarking GPU sur supercalculateurs. J'aime construire et évaluer des pipelines ML end-to-end, avec un focus sur la scalabilité, l'efficacité et le déploiement réel. Étudiant en double diplôme UTBM (France) & UQAC (Canada), spécialisé en IA.",
-    en: "AI & HPC young professional, currently a Research Analyst at the Flatiron Institute (Simons Foundation) in New York. Strong background in distributed deep learning (DDP, FSDP), HPC environments and GPU benchmarking on supercomputing systems. I love building and benchmarking end-to-end ML pipelines, with a focus on scalability, efficiency and real-world deployment. Dual-degree student at UTBM (France) & UQAC (Canada), specialized in AI.",
+    fr: "Arrivé au machine learning par le reinforcement learning — sur lequel j'ai enchaîné plusieurs projets et une première spécialisation —, je me consacre aujourd'hui à l'entraînement et à l'inférence de LLM à grande échelle sur clusters GPU. J'aime couvrir toute la chaîne : du benchmark bas niveau jusqu'au déploiement end-to-end. Actuellement Research Analyst au Flatiron Institute (Simons Foundation) à New York, je travaille sur le deep learning distribué (DDP, FSDP), les environnements HPC et le benchmarking GPU sur supercalculateurs. Double diplôme UTBM (France) & UQAC (Canada), spécialisé en IA.",
+    en: "I got into machine learning through reinforcement learning — where I built several projects and first specialized — and now focus on training and serving LLMs at scale on GPU clusters. I like covering the whole chain: from low-level benchmarking to end-to-end deployment. Currently a Research Analyst at the Flatiron Institute (Simons Foundation) in New York, I work on distributed deep learning (DDP, FSDP), HPC environments and GPU benchmarking on supercomputing systems. Dual-degree student at UTBM (France) & UQAC (Canada), specialized in AI.",
   },
   // Add or remove links freely
   links: {
