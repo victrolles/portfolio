@@ -90,6 +90,19 @@ export const projects = [
     media: { type: "video", src: "", poster: "" },
   },
   {
+    id: "pacman-rl",
+    emoji: "👾",
+    title: { fr: "Pac-Man — Deep RL", en: "Pac-Man — Deep RL" },
+    stack: ["Deep RL", "DQN", "Python"],
+    accent: "from-yellow-400 to-red-500",
+    description: {
+      fr: "Agent d'IA entraîné par deep reinforcement learning pour apprendre à jouer à Pac-Man.",
+      en: "AI agent trained with deep reinforcement learning to learn how to play Pac-Man.",
+    },
+    link: "",
+    media: { type: "image", src: "/videos/pacman.gif", poster: "" },
+  },
+  {
     id: "chatbot",
     emoji: "💬",
     title: { fr: "Chatbot RAG", en: "RAG Chatbot" },
