@@ -87,7 +87,7 @@ export const projects = [
       en: "AI agent trained with deep reinforcement learning to learn how to play the Snake game.",
     },
     link: "https://github.com/victrolles/SnakeGame-DeepQLearning-Pytorch",
-    media: { type: "video", src: "", poster: "" },
+    media: { type: "image", src: "/videos/snake.png", poster: "" },
   },
   {
     id: "pacman-rl",
@@ -113,7 +113,7 @@ export const projects = [
       en: "Conversational assistant combining an LLM with retrieval-augmented generation (RAG). 2nd place at the CONFORMiT hackathon.",
     },
     link: "",
-    media: { type: "video", src: "", poster: "" },
+    media: { type: "image", src: "/videos/chatbot_rag.jpg", poster: "" },
   },
   {
     id: "chatbot-k8s",
