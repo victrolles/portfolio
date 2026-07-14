@@ -83,7 +83,7 @@ export default function Hero({ lang }) {
         <div className="flex justify-center md:justify-end">
           <div className="relative">
             <div className="absolute -inset-3 rounded-[2rem] bg-gradient-to-tr from-indigo-500 to-fuchsia-500 opacity-70 blur-lg" />
-            <div className="relative h-56 w-56 overflow-hidden rounded-[2rem] border border-white/10 bg-ink-soft sm:h-64 sm:w-64">
+            <div className="relative aspect-[4/3] w-72 overflow-hidden rounded-[2rem] border border-white/10 bg-ink-soft sm:w-96">
               {profile.photo ? (
                 <img
                   src={profile.photo}
