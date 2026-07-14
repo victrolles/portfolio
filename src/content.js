@@ -51,7 +51,7 @@ export const projects = [
     id: "polymathic",
     emoji: "🔭",
     title: { fr: "Polymathic AI", en: "Polymathic AI" },
-    stack: ["React", "Inference", "Science"],
+    stack: ["React", "Inference", "ML4Science", "Kubernetes"],
     accent: "from-indigo-500 to-blue-500",
     description: {
       fr: "Prototype d'interface de démonstration déployé en interne pour Polymathic AI (Simons Foundation / Flatiron Institute), pour mettre en valeur leurs foundation models scientifiques. Le chercheur configure son modèle et définit un sous-ensemble de données dans lequel on sélectionne un échantillon ; le modèle renvoie alors sa prédiction et l'ensemble des sorties configurées par le chercheur. Couvre plusieurs domaines comme l'astronomie et la biologie.",
