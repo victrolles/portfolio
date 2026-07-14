@@ -1,5 +1,52 @@
 import { projects, ui } from "../content.js";
 
+function Media({ media, emoji, accent, lang }) {
+  const base =
+    "relative mt-4 aspect-video w-full overflow-hidden rounded-xl border border-white/10 bg-ink";
+
+  if (media?.src && media.type === "video") {
+    return (
+      <div className={base}>
+        <video
+          className="h-full w-full object-cover"
+          src={media.src}
+          poster={media.poster || undefined}
+          controls
+          muted
+          loop
+          playsInline
+          preload="metadata"
+        />
+      </div>
+    );
+  }
+
+  if (media?.src && media.type === "image") {
+    return (
+      <div className={base}>
+        <img
+          src={media.src}
+          alt=""
+          className="h-full w-full object-cover"
+          loading="lazy"
+        />
+      </div>
+    );
+  }
+
+  return (
+    <div
+      className={`${base} flex flex-col items-center justify-center gap-2 bg-gradient-to-br ${accent} bg-opacity-10`}
+    >
+      <div className="absolute inset-0 bg-ink/70" />
+      <span className="relative text-4xl opacity-80">{emoji}</span>
+      <span className="relative text-xs uppercase tracking-widest text-gray-400">
+        {ui.actions.demo_soon[lang]}
+      </span>
+    </div>
+  );
+}
+
 export default function Projects({ lang }) {
   return (
     <section id="projects" className="scroll-mt-20 px-6 py-24">
@@ -33,7 +80,15 @@ export default function Projects({ lang }) {
                   {p.title[lang]}
                 </h3>
               </div>
-              <p className="text-gray-400">{p.description[lang]}</p>
+
+              <Media
+                media={p.media}
+                emoji={p.emoji}
+                accent={p.accent}
+                lang={lang}
+              />
+
+              <p className="mt-4 text-gray-400">{p.description[lang]}</p>
 
               <div className="mt-5 flex flex-wrap gap-2">
                 {p.stack.map((s) => (

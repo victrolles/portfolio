@@ -41,54 +41,66 @@ export const profile = {
   },
 };
 
+// For each project you can add a media preview below the logo:
+//   media: { type: "video", src: "/videos/xxx.mp4", poster: "/videos/xxx.jpg" }
+//   media: { type: "image", src: "/videos/xxx.gif" }   // gif or image
+// Drop the files in public/ (e.g. public/videos/) and reference them here.
+// Leave src empty ("") to show a "demo coming soon" placeholder.
 export const projects = [
   {
-    id: "polymatic",
-    emoji: "🧩",
-    title: { fr: "Site Polymatic", en: "Polymatic website" },
-    stack: ["React", "Web", "UI/UX"],
+    id: "polymathic",
+    emoji: "🔭",
+    title: { fr: "Polymathic AI", en: "Polymathic AI" },
+    stack: ["React", "Web", "Science"],
     accent: "from-indigo-500 to-blue-500",
     description: {
-      fr: "Site vitrine interactif conçu pour Polymatic, avec une interface soignée et responsive.",
-      en: "Interactive showcase website built for Polymatic, with a polished and responsive interface.",
+      fr: "Site web réalisé pour Polymathic AI, une initiative de recherche (Simons Foundation / Flatiron Institute) qui développe des foundation models pour la science.",
+      en: "Website built for Polymathic AI, a research initiative (Simons Foundation / Flatiron Institute) developing foundation models for science.",
     },
-    link: "",
+    link: "https://polymathic-ai.org",
+    media: { type: "video", src: "", poster: "" },
   },
   {
-    id: "trackmania",
+    id: "trackmania-rl",
     emoji: "🏎️",
-    title: { fr: "Site Trackmania", en: "Trackmania website" },
-    stack: ["Web", "Front-end", "Design"],
+    title: {
+      fr: "Trackmania — Deep RL",
+      en: "Trackmania — Deep RL",
+    },
+    stack: ["Deep RL", "PyTorch", "Python"],
     accent: "from-emerald-500 to-teal-500",
     description: {
-      fr: "Site dédié à Trackmania : présentation visuelle dynamique autour du jeu et de sa communauté.",
-      en: "A Trackmania-focused site: dynamic visual presentation around the game and its community.",
+      fr: "Agent d'IA entraîné par deep reinforcement learning pour piloter et boucler des circuits dans Trackmania.",
+      en: "AI agent trained with deep reinforcement learning to drive and complete tracks in Trackmania.",
     },
     link: "",
+    media: { type: "video", src: "", poster: "" },
+  },
+  {
+    id: "snake-rl",
+    emoji: "🐍",
+    title: { fr: "Snake — Deep RL", en: "Snake — Deep RL" },
+    stack: ["Deep RL", "DQN", "Python"],
+    accent: "from-amber-500 to-orange-500",
+    description: {
+      fr: "Agent d'IA entraîné par deep reinforcement learning pour apprendre à jouer au jeu Snake.",
+      en: "AI agent trained with deep reinforcement learning to learn how to play the Snake game.",
+    },
+    link: "",
+    media: { type: "video", src: "", poster: "" },
   },
   {
     id: "chatbot",
     emoji: "💬",
-    title: { fr: "Chatbot", en: "Chatbot" },
-    stack: ["NLP", "LLM", "Python"],
+    title: { fr: "Chatbot RAG", en: "RAG Chatbot" },
+    stack: ["LLM", "RAG", "Python"],
     accent: "from-fuchsia-500 to-pink-500",
     description: {
-      fr: "Assistant conversationnel capable de répondre en langage naturel, avec gestion du contexte.",
-      en: "Conversational assistant that answers in natural language, with context handling.",
+      fr: "Assistant conversationnel combinant un LLM et du retrieval-augmented generation (RAG). 2ᵉ prix au hackathon CONFORMiT.",
+      en: "Conversational assistant combining an LLM with retrieval-augmented generation (RAG). 2nd place at the CONFORMiT hackathon.",
     },
     link: "",
-  },
-  {
-    id: "snake",
-    emoji: "🐍",
-    title: { fr: "Snake", en: "Snake" },
-    stack: ["JavaScript", "Canvas", "Game"],
-    accent: "from-amber-500 to-orange-500",
-    description: {
-      fr: "Implémentation du jeu Snake dans le navigateur : logique de jeu, score et contrôles clavier.",
-      en: "A browser implementation of the classic Snake game: game logic, scoring and keyboard controls.",
-    },
-    link: "",
+    media: { type: "video", src: "", poster: "" },
   },
 ];
 
@@ -169,8 +181,8 @@ export const ui = {
   sections: {
     projects_title: { fr: "Projets", en: "Projects" },
     projects_sub: {
-      fr: "Sites et applications que j'ai créés.",
-      en: "Sites and applications I have built.",
+      fr: "Sites web, agents d'IA et applications que j'ai créés.",
+      en: "Websites, AI agents and applications I have built.",
     },
     studies_title: { fr: "Études & Recherche", en: "Studies & Research" },
     studies_sub: {
@@ -187,6 +199,7 @@ export const ui = {
     visit: { fr: "Visiter", en: "Visit" },
     read: { fr: "Lire l'étude", en: "Read study" },
     cv: { fr: "Télécharger le CV", en: "Download CV" },
+    demo_soon: { fr: "Démo à venir", en: "Demo coming soon" },
   },
   footer: {
     built: {
