@@ -87,7 +87,7 @@ export const projects = [
       en: "AI agent trained with deep reinforcement learning to learn how to play the Snake game.",
     },
     link: "https://github.com/victrolles/SnakeGame-DeepQLearning-Pytorch",
-    media: { type: "image", src: "/videos/snake.png", poster: "" },
+    media: { type: "image", src: "/videos/snake.png", poster: "", fit: "contain" },
   },
   {
     id: "pacman-rl",
