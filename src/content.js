@@ -18,7 +18,7 @@ export const profile = {
     },
   },
   // Replace with your own photo: drop a file in /public and use "/photo.jpg"
-  photo: "",
+  photo: "/photo.jpg",
   role: {
     fr: "Ingénieur AI & HPC — Deep Learning distribué & systèmes GPU",
     en: "AI & HPC Engineer — Distributed Deep Learning & GPU systems",
@@ -37,7 +37,7 @@ export const profile = {
     linkedin: "https://www.linkedin.com/in/victorgoudal07",
     email: "mailto:vi.goudal@gmail.com",
     // Put your CV file in /public and set "/cv.pdf"
-    cv: "",
+    cv: "/cv.pdf",
   },
 };
 
