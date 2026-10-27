@@ -119,26 +119,38 @@ export default function Projects({ lang }) {
                 ))}
               </div>
 
-              {p.link ? (
-                <a
-                  href={p.link}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="mt-5 inline-flex items-center gap-1 text-sm font-semibold text-indigo-400 transition hover:text-indigo-300"
-                >
-                  {p.link.includes("github.com")
-                    ? "GitHub"
-                    : ui.actions.visit[lang]}{" "}
-                  →
-                </a>
-              ) : (
-                p.soon === "link" && (
-                  <span className="mt-5 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-gray-400">
-                    <span className="h-1.5 w-1.5 rounded-full bg-amber-400" />
-                    {ui.actions.link_soon[lang]}
-                  </span>
-                )
-              )}
+              <div className="flex flex-wrap items-center gap-x-5">
+                {p.link ? (
+                  <a
+                    href={p.link}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="mt-5 inline-flex items-center gap-1 text-sm font-semibold text-indigo-400 transition hover:text-indigo-300"
+                  >
+                    {p.link.includes("github.com")
+                      ? "GitHub"
+                      : ui.actions.visit[lang]}{" "}
+                    →
+                  </a>
+                ) : (
+                  p.soon === "link" && (
+                    <span className="mt-5 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-gray-400">
+                      <span className="h-1.5 w-1.5 rounded-full bg-amber-400" />
+                      {ui.actions.link_soon[lang]}
+                    </span>
+                  )
+                )}
+                {p.website && (
+                  <a
+                    href={p.website}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="mt-5 inline-flex items-center gap-1 text-sm font-semibold text-indigo-400 transition hover:text-indigo-300"
+                  >
+                    {ui.actions.website[lang]} →
+                  </a>
+                )}
+              </div>
             </article>
           ))}
         </div>

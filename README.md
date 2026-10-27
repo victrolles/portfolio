@@ -38,8 +38,16 @@ Drop the files in the `public/` folder, then reference them in `src/content.js`:
 
 ```js
 photo: "/photo.jpg",   // public/photo.jpg
-links: { cv: "/cv.pdf" } // public/cv.pdf
+links: {
+  cv: {
+    fr: "/cv-fr.pdf", // public/cv-fr.pdf — French CV
+    en: "/cv.pdf",    // public/cv.pdf — English CV
+  },
+}
 ```
+
+The CV download button uses the PDF matching the selected language (FR or EN).
+Add your French PDF as `public/cv-fr.pdf`; the existing English PDF stays at `public/cv.pdf`.
 
 ## Deploying to Vercel
 

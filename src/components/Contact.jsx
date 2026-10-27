@@ -2,6 +2,7 @@ import { profile, ui } from "../content.js";
 
 export default function Contact({ lang }) {
   const { links } = profile;
+  const cv = links.cv?.[lang];
 
   const items = [
     links.email && { label: "Email", href: links.email },
@@ -31,11 +32,10 @@ export default function Contact({ lang }) {
               {it.label}
             </a>
           ))}
-          {links.cv && (
+          {cv && (
             <a
-              href={links.cv}
-              target="_blank"
-              rel="noreferrer"
+              href={cv}
+              download
               className="rounded-xl bg-indigo-500 px-5 py-3 font-semibold text-white shadow-lg shadow-indigo-500/30 transition hover:bg-indigo-400"
             >
               {ui.actions.cv[lang]}

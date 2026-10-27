@@ -36,8 +36,11 @@ export const profile = {
     github: "https://github.com/victrolles",
     linkedin: "https://www.linkedin.com/in/victorgoudal07",
     email: "mailto:vi.goudal@gmail.com",
-    // Put your CV file in /public and set "/cv.pdf"
-    cv: "/cv.pdf",
+    // Add your French CV as public/cv-fr.pdf; the English CV is public/cv.pdf.
+    cv: {
+      fr: "/cv-fr.pdf",
+      en: "/cv.pdf",
+    },
   },
 };
 
@@ -47,6 +50,46 @@ export const profile = {
 // Drop the files in public/ (e.g. public/videos/) and reference them here.
 // Leave src empty ("") to show a "demo coming soon" placeholder.
 export const projects = [
+  {
+    id: "rl-demo",
+    emoji: "🤖",
+    title: { fr: "RL Demo", en: "RL Demo" },
+    stack: ["React", "FastAPI", "PyTorch", "Gymnasium", "WebSocket"],
+    accent: "from-violet-500 to-indigo-500",
+    description: {
+      fr: "Application web pour observer des agents de reinforcement learning en action dans des environnements Gymnasium. Inférence en temps réel, replay des épisodes et visualisation des activations du réseau de neurones pour explorer leurs décisions.",
+      en: "Web application for watching reinforcement learning agents in action in Gymnasium environments. Live inference, episode replay and neural-network activation visualization let you explore their decisions.",
+    },
+    link: "https://github.com/victrolles/RLDemo",
+    website: "https://rl-demo.victorgoudal.fr/",
+    media: { type: "image", src: "/videos/rl_demo.gif", poster: "" },
+  },
+  {
+    id: "rl-on-atari-games",
+    emoji: "🎮",
+    title: { fr: "RL on Atari Games", en: "RL on Atari Games" },
+    stack: ["Deep RL", "DQN", "SAC", "PyTorch", "Gymnasium"],
+    accent: "from-cyan-500 to-blue-500",
+    description: {
+      fr: "Entraînement d'agents de deep reinforcement learning avec DQN et SAC sur CartPole, Pendulum, CarRacing et BipedalWalker. Expérimentations configurables, sauvegarde des modèles et suivi des entraînements avec Weights & Biases.",
+      en: "Training deep reinforcement learning agents with DQN and SAC on CartPole, Pendulum, CarRacing and BipedalWalker. Configurable experiments, model checkpoints and training tracking with Weights & Biases.",
+    },
+    link: "https://github.com/victrolles/RL-on-atari-games",
+    media: { type: "image", src: "/videos/carracing.gif", poster: "" },
+  },
+  {
+    id: "physics-simulations",
+    emoji: "⚛️",
+    title: { fr: "Simulations physiques", en: "Physics Simulations" },
+    stack: ["Python", "NumPy", "SciPy", "Matplotlib", "Simulation"],
+    accent: "from-orange-500 to-amber-500",
+    description: {
+      fr: "Simulations physiques développées en Python : pendules simple et double, diffusion thermique 2D et goutte d'eau modélisée par particules. Chaque expérience relie les équations à leur résolution numérique, avec une animation et un tutoriel mathématique détaillé.",
+      en: "Physics simulations built in Python: simple and double pendulums, 2D heat diffusion and a particle-based water drop. Each experiment connects the equations to their numerical solution, with an animation and a step-by-step mathematical tutorial.",
+    },
+    link: "https://github.com/victrolles/physics-simulations",
+    media: { type: "image", src: "/videos/water_drop_simulation.gif", poster: "" },
+  },
   {
     id: "polymathic",
     emoji: "🔭",
@@ -60,19 +103,6 @@ export const projects = [
     link: "",
     soon: "link",
     media: { type: "image", src: "/videos/polymathic.jpg", poster: "" },
-  },
-  {
-    id: "rock-segmentation",
-    emoji: "🪨",
-    title: { fr: "Segmentation de roches", en: "Rock segmentation" },
-    stack: ["Computer Vision", "OpenCV", "scikit-image", "Python"],
-    accent: "from-stone-500 to-amber-600",
-    description: {
-      fr: "Pipeline de vision par ordinateur pour segmenter de très petites roches, de la taille de grains de sable, à destination des sociétés minières. Le traitement combine conversion en niveaux de gris, rehaussement de contraste local (CLAHE), seuillage (Otsu et adaptatif) et opérations morphologiques, puis une segmentation par watershed guidée par les contours de Sobel afin de séparer les grains qui se touchent. Chaque grain est ensuite détecté, entouré et numéroté.",
-      en: "Computer-vision pipeline to segment very small rocks, down to sand-grain size, for mining companies. The processing combines grayscale conversion, local contrast enhancement (CLAHE), thresholding (Otsu and adaptive) and morphological operations, followed by a Sobel-edge-guided watershed segmentation to separate touching grains. Each grain is then detected, outlined and numbered.",
-    },
-    link: "",
-    media: { type: "image", src: "/videos/rock_segmentation.png", poster: "", fit: "contain" },
   },
   {
     id: "chatbot",
@@ -104,6 +134,19 @@ export const projects = [
     media: { type: "image", src: "/videos/chatbot_on_kubernetes.png", poster: "" },
   },
   {
+    id: "portfolio",
+    emoji: "🌐",
+    title: { fr: "Portfolio", en: "Portfolio" },
+    stack: ["React", "Vite", "Tailwind CSS", "JavaScript"],
+    accent: "from-sky-500 to-indigo-500",
+    description: {
+      fr: "Portfolio personnel bilingue (français / anglais) présentant mes projets, travaux de recherche et parcours. Interface responsive développée avec React, Vite et Tailwind CSS, avec navigation par sections et animations au défilement.",
+      en: "Bilingual personal portfolio (French / English) showcasing my projects, research and background. Responsive interface built with React, Vite and Tailwind CSS, with section navigation and scroll animations.",
+    },
+    link: "https://github.com/victrolles/portfolio",
+    media: { type: "image", src: "/videos/portfolio.png", poster: "" },
+  },
+  {
     id: "trackmania-rl",
     emoji: "🏎️",
     title: {
@@ -131,6 +174,19 @@ export const projects = [
     },
     link: "https://github.com/victrolles/Atari-Imitation-Learning",
     media: { type: "image", src: "/videos/pacman.gif", poster: "", fit: "contain" },
+  },
+  {
+    id: "rock-segmentation",
+    emoji: "🪨",
+    title: { fr: "Segmentation de roches", en: "Rock segmentation" },
+    stack: ["Computer Vision", "OpenCV", "scikit-image", "Python"],
+    accent: "from-stone-500 to-amber-600",
+    description: {
+      fr: "Pipeline de vision par ordinateur pour segmenter de très petites roches, de la taille de grains de sable, à destination des sociétés minières. Le traitement combine conversion en niveaux de gris, rehaussement de contraste local (CLAHE), seuillage (Otsu et adaptatif) et opérations morphologiques, puis une segmentation par watershed guidée par les contours de Sobel afin de séparer les grains qui se touchent. Chaque grain est ensuite détecté, entouré et numéroté.",
+      en: "Computer-vision pipeline to segment very small rocks, down to sand-grain size, for mining companies. The processing combines grayscale conversion, local contrast enhancement (CLAHE), thresholding (Otsu and adaptive) and morphological operations, followed by a Sobel-edge-guided watershed segmentation to separate touching grains. Each grain is then detected, outlined and numbered.",
+    },
+    link: "",
+    media: { type: "image", src: "/videos/rock_segmentation.png", poster: "", fit: "contain" },
   },
   // Snake — Deep RL: temporarily hidden to avoid having too many deep-RL
   // game projects (Trackmania, Snake, Pac-Man). Uncomment to bring it back.
@@ -252,6 +308,7 @@ export const ui = {
   },
   actions: {
     visit: { fr: "Visiter", en: "Visit" },
+    website: { fr: "Site web", en: "Website" },
     read: { fr: "Lire l'étude", en: "Read study" },
     cv: { fr: "Télécharger le CV", en: "Download CV" },
     demo_soon: { fr: "Démo à venir", en: "Demo coming soon" },
