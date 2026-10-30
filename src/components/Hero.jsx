@@ -1,116 +1,102 @@
 import { profile, ui } from "../content.js";
+import { ArrowDown, Download } from "./Icons.jsx";
 
-function initials(name) {
-  return name
-    .split(" ")
-    .map((p) => p[0])
-    .join("")
-    .slice(0, 2)
-    .toUpperCase();
+const NODES = 8;
+const GPUS_PER_NODE = 8;
+
+// 8 nodes × 8 GPUs, lit by a wave that sweeps the cluster like a
+// sharded all-gather: the visual signature of Victor's FSDP work.
+function Cluster({ lang }) {
+  return (
+    <figure className="surface p-6 sm:p-8">
+      <div className="grid grid-cols-[auto_1fr] items-center gap-x-4 gap-y-2">
+        {Array.from({ length: NODES }, (_, row) => (
+          <div key={row} className="contents">
+            <span className="font-mono text-[11px] text-faint tabular-nums">
+              {ui.hero.cluster_node[lang]} {row}
+            </span>
+            <div className="grid grid-cols-8 gap-1.5">
+              {Array.from({ length: GPUS_PER_NODE }, (_, col) => (
+                <span
+                  key={col}
+                  className="gpu"
+                  style={{ "--row": row, "--col": col }}
+                />
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+      <figcaption className="mt-6 flex items-center justify-between gap-4 border-t border-line pt-5 text-sm text-muted">
+        <span>{ui.hero.cluster_caption[lang]}</span>
+        <a href="#studies" className="text-link shrink-0">
+          {ui.hero.cta_research[lang]}
+        </a>
+      </figcaption>
+    </figure>
+  );
 }
 
 export default function Hero({ lang }) {
+  const { location } = profile;
+
   return (
     <section
       id="top"
-      className="relative flex min-h-screen items-center overflow-hidden px-6 pt-24"
+      className="relative mx-auto grid min-h-[100svh] max-w-6xl items-center gap-14 px-6 pt-32 pb-20 lg:grid-cols-[1.15fr_1fr] lg:gap-16"
     >
-      {/* Animated gradient background */}
-      <div className="pointer-events-none absolute inset-0 -z-10">
-        <div className="animate-float absolute -left-20 top-10 h-72 w-72 rounded-full bg-indigo-600/30 blur-3xl" />
-        <div className="animate-float-slow absolute right-0 top-40 h-80 w-80 rounded-full bg-fuchsia-600/20 blur-3xl" />
-        <div className="animate-float absolute bottom-0 left-1/3 h-72 w-72 rounded-full bg-sky-500/20 blur-3xl" />
-      </div>
+      <div>
+        <p
+          className="rise flex flex-wrap items-center gap-x-2 gap-y-1 text-sm text-muted"
+          style={{ "--i": 0 }}
+        >
+          <span className="size-2 rounded-full bg-emerald-500" />
+          {location.current[lang]}
+          <span className="text-faint">/</span>
+          {location.openLabel[lang]}{" "}
+          {location.open.map((c) => c.split(",")[0]).join(", ")}
+        </p>
 
-      <div className="mx-auto grid max-w-6xl items-center gap-12 md:grid-cols-[1.4fr_1fr]">
-        <div>
-          <p className="mb-4 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-1.5 text-sm text-gray-300">
-            <span className="h-2 w-2 rounded-full bg-emerald-400" />
-            {profile.role[lang]}
-          </p>
-          <h1 className="text-4xl font-extrabold leading-tight tracking-tight text-white sm:text-6xl">
-            {profile.name}
-          </h1>
-          {profile.location && (
-            <div className="mt-3 flex flex-wrap items-center gap-x-3 gap-y-2 text-sm text-gray-400">
-              <span className="flex items-center gap-2">
-                <span aria-hidden>📍</span>
-                {profile.location.current[lang]}
-              </span>
-              {profile.location.open?.length > 0 && (
-                <span className="flex flex-wrap items-center gap-2">
-                  <span className="text-gray-600">·</span>
-                  <span className="text-gray-500">
-                    {profile.location.openLabel[lang]}
-                  </span>
-                  {profile.location.open.map((city) => (
-                    <span
-                      key={city}
-                      className="rounded-full border border-indigo-400/30 bg-indigo-500/10 px-3 py-0.5 text-xs font-medium text-indigo-300"
-                    >
-                      {city}
-                    </span>
-                  ))}
-                  {profile.location.note?.[lang] && (
-                    <span className="text-xs italic text-gray-500">
-                      {profile.location.note[lang]}
-                    </span>
-                  )}
-                </span>
-              )}
-            </div>
-          )}
-          <p className="mt-6 max-w-xl text-lg text-gray-300">
+        <h1
+          className="rise mt-6 font-serif text-[clamp(3rem,6.2vw,5.5rem)] leading-[0.95] tracking-[-0.02em] text-ink"
+          style={{ "--i": 1 }}
+        >
+          {profile.headline[lang]}
+        </h1>
+
+        <div className="rise mt-8 max-w-xl" style={{ "--i": 2 }}>
+          <p className="text-lg font-medium text-ink">{profile.role[lang]}</p>
+          <p className="mt-3 text-[1.0625rem] leading-relaxed text-muted">
             {profile.tagline[lang]}
           </p>
-
-          <div className="mt-8 flex flex-wrap gap-4">
-            <a
-              href="#projects"
-              className="rounded-xl bg-indigo-500 px-6 py-3 font-semibold text-white shadow-lg shadow-indigo-500/30 transition hover:bg-indigo-400"
-            >
-              {ui.hero.cta_projects[lang]}
-            </a>
-            <a
-              href="#studies"
-              className="rounded-xl bg-white/10 px-6 py-3 font-semibold text-white ring-1 ring-white/15 transition hover:bg-white/20"
-            >
-              {ui.hero.cta_research[lang]}
-            </a>
-            <a
-              href="#contact"
-              className="rounded-xl border border-white/20 px-6 py-3 font-semibold text-white transition hover:bg-white/10"
-            >
-              {ui.hero.cta_contact[lang]}
-            </a>
-          </div>
         </div>
 
-        <div className="flex justify-center md:justify-end">
-          <div className="relative">
-            <div className="absolute -inset-3 rounded-[2rem] bg-gradient-to-tr from-indigo-500 to-fuchsia-500 opacity-70 blur-lg" />
-            <div className="relative aspect-[4/3] w-72 overflow-hidden rounded-[2rem] border border-white/10 bg-ink-soft sm:w-96">
-              {profile.photo ? (
-                <img
-                  src={profile.photo}
-                  alt={profile.name}
-                  className="h-full w-full object-cover"
-                />
-              ) : (
-                <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-indigo-500/30 to-fuchsia-500/30 text-6xl font-bold text-white/80">
-                  {initials(profile.name)}
-                </div>
-              )}
-            </div>
-          </div>
+        <div className="rise mt-10 flex flex-wrap gap-3" style={{ "--i": 3 }}>
+          <a href="#projects" className="btn btn-primary">
+            {ui.hero.cta_projects[lang]}
+          </a>
+          <a
+            href={profile.links.cv[lang]}
+            className="btn btn-ghost"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <Download />
+            {ui.actions.cv[lang]}
+          </a>
         </div>
+      </div>
+
+      <div className="rise" style={{ "--i": 4 }}>
+        <Cluster lang={lang} />
       </div>
 
       <a
-        href="#projects"
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 text-xs uppercase tracking-widest text-gray-500 transition hover:text-white"
+        href="#about"
+        aria-label={ui.hero.scroll[lang]}
+        className="absolute bottom-8 left-1/2 hidden size-10 -translate-x-1/2 items-center justify-center rounded-full border border-line bg-white text-muted transition-colors hover:text-ink lg:flex"
       >
-        ↓ {ui.hero.scroll[lang]}
+        <ArrowDown />
       </a>
     </section>
   );

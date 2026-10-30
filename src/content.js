@@ -18,7 +18,43 @@ export const profile = {
     },
   },
   // Replace with your own photo: drop a file in /public and use "/photo.jpg"
-  photo: "/photo.jpg",
+  photo: "/photo-web.jpg",
+  photoCaption: {
+    fr: "SC25, la conférence internationale du supercalcul — St. Louis, Missouri.",
+    en: "SC25, the international supercomputing conference — St. Louis, Missouri.",
+  },
+  headline: {
+    fr: "Du benchmark GPU au déploiement de LLM.",
+    en: "From GPU benchmarks to LLM deployment.",
+  },
+  // Short facts shown next to the photo
+  facts: [
+    {
+      label: { fr: "Dernière expérience", en: "Latest role" },
+      value: {
+        fr: "Research Analyst, Flatiron Institute — New York",
+        en: "Research Analyst, Flatiron Institute — New York",
+      },
+    },
+    {
+      label: { fr: "Formation", en: "Education" },
+      value: {
+        fr: "Double diplôme UTBM (France) et UQAC (Canada), spécialité IA",
+        en: "Dual degree UTBM (France) and UQAC (Canada), AI major",
+      },
+    },
+    {
+      label: { fr: "Diplômé", en: "Graduating" },
+      value: { fr: "Septembre 2026", en: "September 2026" },
+    },
+    {
+      label: { fr: "Domaines", en: "Focus" },
+      value: {
+        fr: "DDP, FSDP, quantization, CUDA, Kubernetes",
+        en: "DDP, FSDP, quantization, CUDA, Kubernetes",
+      },
+    },
+  ],
   role: {
     fr: "Ingénieur AI & HPC — Deep Learning distribué & systèmes GPU",
     en: "AI & HPC Engineer — Distributed Deep Learning & GPU systems",
@@ -288,8 +324,14 @@ export const ui = {
     cta_research: { fr: "Voir les études", en: "View research" },
     cta_contact: { fr: "Me contacter", en: "Get in touch" },
     scroll: { fr: "Faites défiler", en: "Scroll down" },
+    cluster_caption: {
+      fr: "Benchmark FSDP, jusqu'à 8 nœuds NVIDIA B300",
+      en: "FSDP benchmark, up to 8 NVIDIA B300 nodes",
+    },
+    cluster_node: { fr: "nœud", en: "node" },
   },
   sections: {
+    about_title: { fr: "Parcours", en: "Background" },
     projects_title: { fr: "Projets", en: "Projects" },
     projects_sub: {
       fr: "Sites web, agents d'IA et applications que j'ai créés.",
@@ -300,10 +342,10 @@ export const ui = {
       fr: "Travaux d'analyse et de benchmark en ML et systèmes.",
       en: "Analysis and benchmarking work in ML and systems.",
     },
-    contact_title: { fr: "Contact", en: "Contact" },
+    contact_title: { fr: "Travaillons ensemble.", en: "Let's work together." },
     contact_sub: {
-      fr: "N'hésitez pas à me contacter.",
-      en: "Feel free to reach out.",
+      fr: "Disponible à partir de septembre 2026 pour un poste en IA, HPC ou ML systems. Écrivez-moi directement.",
+      en: "Available from September 2026 for a role in AI, HPC or ML systems. Write to me directly.",
     },
   },
   actions: {
@@ -311,6 +353,9 @@ export const ui = {
     website: { fr: "Site web", en: "Website" },
     read: { fr: "Lire l'étude", en: "Read study" },
     cv: { fr: "Télécharger le CV", en: "Download CV" },
+    code: { fr: "Code", en: "Code" },
+    github: { fr: "GitHub", en: "GitHub" },
+    linkedin: { fr: "LinkedIn", en: "LinkedIn" },
     demo_soon: { fr: "Démo à venir", en: "Demo coming soon" },
     link_soon: { fr: "Lien disponible bientôt", en: "Link available soon" },
     article_soon: {
@@ -320,8 +365,8 @@ export const ui = {
   },
   footer: {
     built: {
-      fr: "Conçu avec React, Vite & Tailwind CSS.",
-      en: "Built with React, Vite & Tailwind CSS.",
+      fr: "Conçu avec React, Vite et Tailwind CSS.",
+      en: "Built with React, Vite and Tailwind CSS.",
     },
   },
 };
