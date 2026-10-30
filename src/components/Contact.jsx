@@ -1,47 +1,54 @@
 import { profile, ui } from "../content.js";
+import { Download, GitHub, LinkedIn } from "./Icons.jsx";
 
 export default function Contact({ lang }) {
   const { links } = profile;
-  const cv = links.cv?.[lang];
-
-  const items = [
-    links.email && { label: "Email", href: links.email },
-    links.github && { label: "GitHub", href: links.github },
-    links.linkedin && { label: "LinkedIn", href: links.linkedin },
-  ].filter(Boolean);
+  const email = links.email.replace("mailto:", "");
 
   return (
-    <section id="contact" className="scroll-mt-20 px-6 py-24">
-      <div className="reveal mx-auto max-w-3xl rounded-3xl border border-white/10 bg-gradient-to-br from-indigo-600/20 to-fuchsia-600/10 p-10 text-center">
-        <h2 className="text-3xl font-bold text-white sm:text-4xl">
-          {ui.sections.contact_title[lang]}
-        </h2>
-        <p className="mx-auto mt-3 max-w-lg text-gray-300">
-          {ui.sections.contact_sub[lang]}
-        </p>
+    <section id="contact" className="mx-auto max-w-6xl px-6 py-32">
+      <h2 className="font-serif text-[clamp(3rem,8vw,6.5rem)] leading-[0.95] tracking-[-0.02em]">
+        {ui.sections.contact_title[lang]}
+      </h2>
+      <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted">
+        {ui.sections.contact_sub[lang]}
+      </p>
 
-        <div className="mt-8 flex flex-wrap justify-center gap-3">
-          {items.map((it) => (
-            <a
-              key={it.label}
-              href={it.href}
-              target={it.href.startsWith("mailto:") ? undefined : "_blank"}
-              rel="noreferrer"
-              className="rounded-xl border border-white/20 bg-white/5 px-5 py-3 font-semibold text-white transition hover:bg-white/10"
-            >
-              {it.label}
-            </a>
-          ))}
-          {cv && (
-            <a
-              href={cv}
-              download
-              className="rounded-xl bg-indigo-500 px-5 py-3 font-semibold text-white shadow-lg shadow-indigo-500/30 transition hover:bg-indigo-400"
-            >
-              {ui.actions.cv[lang]}
-            </a>
-          )}
-        </div>
+      <a
+        href={links.email}
+        className="mt-12 inline-block border-b border-ink/20 pb-1 text-[clamp(1.5rem,4vw,2.5rem)] font-medium tracking-[-0.02em] transition-colors hover:border-accent hover:text-accent"
+      >
+        {email}
+      </a>
+
+      <div className="mt-12 flex flex-wrap gap-3">
+        <a
+          href={links.linkedin}
+          target="_blank"
+          rel="noreferrer"
+          className="btn btn-ghost"
+        >
+          <LinkedIn />
+          {ui.actions.linkedin[lang]}
+        </a>
+        <a
+          href={links.github}
+          target="_blank"
+          rel="noreferrer"
+          className="btn btn-ghost"
+        >
+          <GitHub />
+          {ui.actions.github[lang]}
+        </a>
+        <a
+          href={links.cv[lang]}
+          target="_blank"
+          rel="noreferrer"
+          className="btn btn-primary"
+        >
+          <Download />
+          {ui.actions.cv[lang]}
+        </a>
       </div>
     </section>
   );

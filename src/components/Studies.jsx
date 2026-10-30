@@ -1,99 +1,85 @@
 import { studies, ui } from "../content.js";
+import { Book, GitHub } from "./Icons.jsx";
+
+function StudyAction({ study, lang }) {
+  if (study.link) {
+    const isRepo = study.link.includes("github.com");
+    return (
+      <a
+        href={study.link}
+        target="_blank"
+        rel="noreferrer"
+        className="text-link"
+      >
+        {isRepo ? <GitHub /> : <Book />}
+        {isRepo ? ui.actions.code[lang] : ui.actions.read[lang]}
+      </a>
+    );
+  }
+  if (study.soon === "article") {
+    return (
+      <span className="text-sm text-faint">
+        {ui.actions.article_soon[lang]}
+      </span>
+    );
+  }
+  return null;
+}
 
 export default function Studies({ lang }) {
   return (
-    <section
-      id="studies"
-      className="scroll-mt-20 border-t border-white/5 bg-gradient-to-b from-ink to-ink-soft px-6 py-24"
-    >
-      <div className="mx-auto max-w-6xl">
-        <div className="reveal mb-14 text-center">
-          <h2 className="text-3xl font-bold text-white sm:text-4xl">
-            {ui.sections.studies_title[lang]}
-          </h2>
-          <p className="mx-auto mt-3 max-w-xl text-gray-400">
-            {ui.sections.studies_sub[lang]}
-          </p>
-        </div>
+    <section id="studies" className="mx-auto max-w-6xl px-6 py-28">
+      <div className="max-w-2xl">
+        <h2 className="font-serif text-5xl tracking-[-0.01em] sm:text-6xl">
+          {ui.sections.studies_title[lang]}
+        </h2>
+        <p className="mt-4 text-lg text-muted">
+          {ui.sections.studies_sub[lang]}
+        </p>
+      </div>
 
-        <div className="relative space-y-6 border-l border-white/10 pl-6 sm:pl-8">
-          {studies.map((s, i) => (
-            <article
-              key={s.id}
-              className="reveal group relative rounded-2xl border border-white/10 bg-ink/60 p-6 transition duration-300 hover:border-white/20"
-              style={{ transitionDelay: `${i * 60}ms` }}
-            >
-              <span
-                className={`absolute -left-[2.35rem] top-7 h-4 w-4 rounded-full border-2 border-ink bg-gradient-to-br ${s.accent} sm:-left-[2.85rem]`}
-              />
-              <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
-                <div className="flex items-start gap-4">
-                  <span className="text-3xl">{s.emoji}</span>
-                  <div>
-                    <h3 className="text-xl font-semibold text-white">
-                      {s.title[lang]}
-                    </h3>
-                    <p className="mt-2 max-w-2xl text-gray-400">
-                      {s.description[lang]}
-                    </p>
-                    <div className="mt-4 flex flex-wrap gap-2">
-                      {s.tags.map((t) => (
-                        <span
-                          key={t}
-                          className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-gray-300"
-                        >
-                          {t}
-                        </span>
-                      ))}
-                    </div>
+      <ul className="mt-14 border-t border-ink/90">
+        {studies.map((s) => (
+          <li
+            key={s.id}
+            className="grid gap-4 border-b border-line py-9 md:grid-cols-[minmax(0,1fr)_minmax(0,1.6fr)_10rem] md:gap-10"
+          >
+            <div>
+              <h3 className="text-2xl font-medium tracking-[-0.015em]">
+                {s.title[lang]}
+              </h3>
+              <p className="chip mt-3 flex flex-wrap gap-x-3 gap-y-1">
+                {s.tags.map((t) => (
+                  <span key={t}>{t}</span>
+                ))}
+              </p>
+            </div>
 
-                    {s.presented && (
-                      <a
-                        href={s.presented.url}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="mt-4 inline-flex items-center gap-2 text-sm text-gray-400 transition hover:text-white"
-                      >
-                        <span aria-hidden>🎤</span>
-                        <span>
-                          <span className="font-semibold text-gray-200">
-                            {s.presented.label[lang]}
-                          </span>
-                          {s.presented.detail?.[lang] && (
-                            <span> — {s.presented.detail[lang]}</span>
-                          )}
-                        </span>
-                        <span aria-hidden>↗</span>
-                      </a>
-                    )}
-                  </div>
-                </div>
-
-                {s.link ? (
+            <div>
+              <p className="leading-relaxed text-ink/80">
+                {s.description[lang]}
+              </p>
+              {s.presented && (
+                <p className="mt-4 inline-flex flex-wrap items-center gap-x-2 rounded-2xl bg-accent-soft px-4 py-2.5 text-sm text-ink">
                   <a
-                    href={s.link}
+                    href={s.presented.url}
                     target="_blank"
                     rel="noreferrer"
-                    className="shrink-0 self-start rounded-lg border border-white/15 px-4 py-2 text-sm font-semibold text-white transition hover:bg-white/10"
+                    className="font-medium text-accent hover:underline hover:underline-offset-4"
                   >
-                    {s.link.includes("github.com")
-                      ? "GitHub"
-                      : ui.actions.read[lang]}{" "}
-                    →
+                    {s.presented.label[lang]}
                   </a>
-                ) : (
-                  s.soon === "article" && (
-                    <span className="inline-flex shrink-0 items-center gap-2 self-start rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-gray-400">
-                      <span className="h-1.5 w-1.5 rounded-full bg-amber-400" />
-                      {ui.actions.article_soon[lang]}
-                    </span>
-                  )
-                )}
-              </div>
-            </article>
-          ))}
-        </div>
-      </div>
+                  <span className="text-muted">{s.presented.detail[lang]}</span>
+                </p>
+              )}
+            </div>
+
+            <div className="md:text-right">
+              <StudyAction study={s} lang={lang} />
+            </div>
+          </li>
+        ))}
+      </ul>
     </section>
   );
 }
