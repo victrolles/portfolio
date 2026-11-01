@@ -1,15 +1,19 @@
 import { useEffect, useState } from "react";
 import Nav from "./components/Nav.jsx";
 import Hero from "./components/Hero.jsx";
+import About from "./components/About.jsx";
 import Projects from "./components/Projects.jsx";
 import Studies from "./components/Studies.jsx";
 import Contact from "./components/Contact.jsx";
 import { profile, ui } from "./content.js";
-import { useReveal } from "./useReveal.js";
 
 function getInitialLang() {
-  const saved = localStorage.getItem("lang");
-  if (saved === "fr" || saved === "en") return saved;
+  try {
+    const saved = localStorage.getItem("lang");
+    if (saved === "fr" || saved === "en") return saved;
+  } catch {
+    // Storage can be unavailable (private mode); fall back to the browser language.
+  }
   return navigator.language?.startsWith("fr") ? "fr" : "en";
 }
 
@@ -17,30 +21,29 @@ export default function App() {
   const [lang, setLang] = useState(getInitialLang);
 
   useEffect(() => {
-    localStorage.setItem("lang", lang);
+    try {
+      localStorage.setItem("lang", lang);
+    } catch {
+      // Ignore: the language still applies for this visit.
+    }
     document.documentElement.lang = lang;
   }, [lang]);
-
-  useReveal();
 
   return (
     <>
       <Nav lang={lang} setLang={setLang} />
       <main>
         <Hero lang={lang} />
-        <section className="border-y border-white/5 bg-ink-soft/50 px-6 py-16">
-          <p className="reveal mx-auto max-w-3xl text-center text-lg leading-relaxed text-gray-300">
-            {profile.about[lang]}
-          </p>
-        </section>
-        <Projects lang={lang} />
+        <About lang={lang} />
         <Studies lang={lang} />
+        <Projects lang={lang} />
         <Contact lang={lang} />
       </main>
-      <footer className="border-t border-white/5 px-6 py-8 text-center text-sm text-gray-500">
+      <footer className="mx-auto flex max-w-6xl flex-col gap-2 border-t border-line px-6 py-10 text-sm text-muted sm:flex-row sm:justify-between">
         <p>
-          © {new Date().getFullYear()} {profile.name}. {ui.footer.built[lang]}
+          © {new Date().getFullYear()} {profile.name}
         </p>
+        <p>{ui.footer.built[lang]}</p>
       </footer>
     </>
   );

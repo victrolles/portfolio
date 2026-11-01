@@ -1,25 +1,15 @@
 import { projects, ui } from "../content.js";
+import { GitHub, Globe } from "./Icons.jsx";
 
-function Media({ media, emoji, accent, lang }) {
-  const base =
-    "relative mt-4 aspect-video w-full overflow-hidden rounded-xl border border-white/10 bg-ink";
-  // Use "contain" for vertical / portrait media so it fits fully inside
-  // the horizontal frame (with a soft blurred backdrop) instead of cropping.
-  const contain = media?.fit === "contain";
-  const fitClass = contain ? "object-contain" : "object-cover";
+function Media({ media, title, lang, className = "" }) {
+  // "contain" keeps portrait or diagram media whole inside the frame.
+  const fit = media?.fit === "contain" ? "object-contain p-4" : "object-cover";
 
   if (media?.src && media.type === "video") {
     return (
-      <div className={base}>
-        {contain && media.poster && (
-          <img
-            src={media.poster}
-            aria-hidden
-            className="absolute inset-0 h-full w-full scale-110 object-cover opacity-30 blur-xl"
-          />
-        )}
+      <div className={`media-frame ${className}`}>
         <video
-          className={`relative h-full w-full ${fitClass}`}
+          className={`size-full ${fit}`}
           src={media.src}
           poster={media.poster || undefined}
           controls
@@ -34,19 +24,12 @@ function Media({ media, emoji, accent, lang }) {
 
   if (media?.src && media.type === "image") {
     return (
-      <div className={base}>
-        {contain && (
-          <img
-            src={media.src}
-            aria-hidden
-            className="absolute inset-0 h-full w-full scale-110 object-cover opacity-30 blur-xl"
-          />
-        )}
+      <div className={`media-frame ${className}`}>
         <img
           src={media.src}
-          alt=""
+          alt={title}
           loading="lazy"
-          className={`relative h-full w-full ${fitClass}`}
+          className={`size-full ${fit}`}
         />
       </div>
     );
@@ -54,105 +37,131 @@ function Media({ media, emoji, accent, lang }) {
 
   return (
     <div
-      className={`${base} flex flex-col items-center justify-center gap-2 bg-gradient-to-br ${accent} bg-opacity-10`}
+      className={`media-frame flex items-center justify-center text-sm text-faint ${className}`}
     >
-      <div className="absolute inset-0 bg-ink/70" />
-      <span className="relative text-4xl opacity-80">{emoji}</span>
-      <span className="relative text-xs uppercase tracking-widest text-gray-400">
-        {ui.actions.demo_soon[lang]}
-      </span>
+      {ui.actions.demo_soon[lang]}
     </div>
   );
 }
 
-export default function Projects({ lang }) {
+function Links({ project, lang }) {
+  const hasAny = project.website || project.link || project.soon === "link";
+  if (!hasAny) return null;
+
   return (
-    <section id="projects" className="scroll-mt-20 px-6 py-24">
-      <div className="mx-auto max-w-6xl">
-        <div className="reveal mb-14 text-center">
-          <h2 className="text-3xl font-bold text-white sm:text-4xl">
+    <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-2">
+      {project.website && (
+        <a
+          href={project.website}
+          target="_blank"
+          rel="noreferrer"
+          className="text-link"
+        >
+          <Globe />
+          {ui.actions.website[lang]}
+        </a>
+      )}
+      {project.link && (
+        <a
+          href={project.link}
+          target="_blank"
+          rel="noreferrer"
+          className="text-link"
+        >
+          <GitHub />
+          {ui.actions.code[lang]}
+        </a>
+      )}
+      {!project.link && project.soon === "link" && (
+        <span className="text-sm text-faint">{ui.actions.link_soon[lang]}</span>
+      )}
+    </div>
+  );
+}
+
+function Stack({ items }) {
+  return (
+    <p className="chip mt-5 flex flex-wrap gap-x-3 gap-y-1">
+      {items.map((s) => (
+        <span key={s}>{s}</span>
+      ))}
+    </p>
+  );
+}
+
+// The first project gets a wide split layout, the rest share a two-column grid.
+function Featured({ project, lang }) {
+  return (
+    <article className="surface grid overflow-hidden p-3 lg:grid-cols-[1fr_1.35fr]">
+      <div className="flex flex-col p-6 sm:p-9">
+        <h3 className="text-3xl font-medium tracking-[-0.02em]">
+          {project.title[lang]}
+        </h3>
+        <p className="mt-4 leading-relaxed text-ink/80">
+          {project.description[lang]}
+        </p>
+        <Stack items={project.stack} />
+        <div className="mt-auto">
+          <Links project={project} lang={lang} />
+        </div>
+      </div>
+      <Media
+        media={project.media}
+        title={project.title[lang]}
+        lang={lang}
+        className="aspect-[16/10] lg:aspect-auto lg:min-h-[420px]"
+      />
+    </article>
+  );
+}
+
+function Card({ project, lang }) {
+  return (
+    <article className="surface flex flex-col p-3">
+      <Media
+        media={project.media}
+        title={project.title[lang]}
+        lang={lang}
+        className="aspect-[16/10]"
+      />
+      <div className="flex flex-1 flex-col px-4 pt-6 pb-5 sm:px-5">
+        <h3 className="text-xl font-medium tracking-[-0.015em]">
+          {project.title[lang]}
+        </h3>
+        <p className="mt-3 text-[0.9375rem] leading-relaxed text-muted">
+          {project.description[lang]}
+        </p>
+        <Stack items={project.stack} />
+        <div className="mt-auto">
+          <Links project={project} lang={lang} />
+        </div>
+      </div>
+    </article>
+  );
+}
+
+export default function Projects({ lang }) {
+  const [first, ...rest] = projects;
+
+  return (
+    <section id="projects" className="bg-mist py-28">
+      <div className="mx-auto max-w-6xl px-6">
+        <div className="max-w-2xl">
+          <h2 className="font-serif text-5xl tracking-[-0.01em] sm:text-6xl">
             {ui.sections.projects_title[lang]}
           </h2>
-          <p className="mx-auto mt-3 max-w-xl text-gray-400">
+          <p className="mt-4 text-lg text-muted">
             {ui.sections.projects_sub[lang]}
           </p>
         </div>
 
-        <div className="grid gap-6 sm:grid-cols-2">
-          {projects.map((p, i) => (
-            <article
-              key={p.id}
-              className="reveal group relative overflow-hidden rounded-2xl border border-white/10 bg-ink-soft p-6 transition duration-300 hover:-translate-y-1 hover:border-white/20"
-              style={{ transitionDelay: `${i * 60}ms` }}
-            >
-              <div
-                className={`absolute inset-x-0 top-0 h-1 bg-gradient-to-r ${p.accent}`}
-              />
-              <div className="mb-4 flex items-center gap-4">
-                <span
-                  className={`flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br ${p.accent} text-2xl`}
-                >
-                  {p.emoji}
-                </span>
-                <h3 className="text-xl font-semibold text-white">
-                  {p.title[lang]}
-                </h3>
-              </div>
-
-              <Media
-                media={p.media}
-                emoji={p.emoji}
-                accent={p.accent}
-                lang={lang}
-              />
-
-              <p className="mt-4 text-gray-400">{p.description[lang]}</p>
-
-              <div className="mt-5 flex flex-wrap gap-2">
-                {p.stack.map((s) => (
-                  <span
-                    key={s}
-                    className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-gray-300"
-                  >
-                    {s}
-                  </span>
-                ))}
-              </div>
-
-              <div className="flex flex-wrap items-center gap-x-5">
-                {p.link ? (
-                  <a
-                    href={p.link}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="mt-5 inline-flex items-center gap-1 text-sm font-semibold text-indigo-400 transition hover:text-indigo-300"
-                  >
-                    {p.link.includes("github.com")
-                      ? "GitHub"
-                      : ui.actions.visit[lang]}{" "}
-                    →
-                  </a>
-                ) : (
-                  p.soon === "link" && (
-                    <span className="mt-5 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-gray-400">
-                      <span className="h-1.5 w-1.5 rounded-full bg-amber-400" />
-                      {ui.actions.link_soon[lang]}
-                    </span>
-                  )
-                )}
-                {p.website && (
-                  <a
-                    href={p.website}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="mt-5 inline-flex items-center gap-1 text-sm font-semibold text-indigo-400 transition hover:text-indigo-300"
-                  >
-                    {ui.actions.website[lang]} →
-                  </a>
-                )}
-              </div>
-            </article>
-          ))}
+        <div className="mt-14 grid gap-6">
+          {first && <Featured project={first} lang={lang} />}
+          <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+            {rest.map((p) => (
+              <Card key={p.id} project={p} lang={lang} />
+            ))}
+          </div>
         </div>
       </div>
     </section>
