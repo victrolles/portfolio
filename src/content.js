@@ -9,11 +9,14 @@ export const profile = {
   location: {
     current: { fr: "Marseille, France", en: "Marseille, France" },
     // Cities you'd like to relocate to (edit / reorder freely)
-    open: ["Paris, France", "New York, USA"],
+    open: {
+      fr: ["Paris", "New York", "Londres"],
+      en: ["Paris", "New York", "London"],
+    },
     openLabel: { fr: "Ouvert à", en: "Open to" },
     // Optional closing note; set to null to hide
     note: {
-      fr: "& autres hubs tech",
+      fr: "& autres pôles technologiques",
       en: "& other tech hubs",
     },
   },
@@ -50,8 +53,8 @@ export const profile = {
     {
       label: { fr: "Domaines", en: "Focus" },
       value: {
-        fr: "DDP, FSDP, quantization, CUDA, Kubernetes",
-        en: "DDP, FSDP, quantization, CUDA, Kubernetes",
+        fr: "Entraînement distribué · Inférence LLM · HPC · Déploiement Kubernetes",
+        en: "Distributed training · LLM inference · HPC · Kubernetes deployment",
       },
     },
   ],
@@ -144,11 +147,11 @@ export const projects = [
     id: "chatbot",
     emoji: "💬",
     title: { fr: "Chatbot RAG", en: "RAG Chatbot" },
-    stack: ["LLM", "RAG", "Python"],
+    stack: ["LLM", "RAG", "Python", "Snowflake", "AWS"],
     accent: "from-fuchsia-500 to-pink-500",
     description: {
-      fr: "Assistant conversationnel combinant un LLM et du retrieval-augmented generation (RAG). 2ᵉ prix au hackathon CONFORMiT.",
-      en: "Conversational assistant combining an LLM with retrieval-augmented generation (RAG). 2nd place at the CONFORMiT hackathon.",
+      fr: "Assistant conversationnel combinant un LLM et du retrieval-augmented generation (RAG). Lauréat du hackathon CONFORMiT — prix de 1 000 $.",
+      en: "Conversational assistant combining an LLM with retrieval-augmented generation (RAG). CONFORMiT Hackathon winner — $1,000 prize.",
     },
     link: "",
     media: { type: "image", src: "/videos/chatbot_rag.jpg", poster: "" },
@@ -160,7 +163,7 @@ export const projects = [
       fr: "Chatbot sur Kubernetes",
       en: "Chatbot on Kubernetes",
     },
-    stack: ["LLM", "Kubernetes", "GPU"],
+    stack: ["LLM", "Kubernetes", "GPU", "FastAPI", "React"],
     accent: "from-blue-500 to-cyan-500",
     description: {
       fr: "Assistant conversationnel (LLM) déployé sur un cluster Kubernetes avec des GPU locaux, pour une inférence auto-hébergée, scalable et maîtrisée de bout en bout.",
@@ -344,8 +347,8 @@ export const ui = {
     },
     contact_title: { fr: "Travaillons ensemble.", en: "Let's work together." },
     contact_sub: {
-      fr: "Disponible à partir de septembre 2026 pour un poste en IA, HPC ou ML systems. Écrivez-moi directement.",
-      en: "Available from September 2026 for a role in AI, HPC or ML systems. Write to me directly.",
+      fr: "Disponible à partir de novembre 2026 pour un poste en IA, HPC ou ML systems. Écrivez-moi directement.",
+      en: "Available from November 2026 for a role in AI, HPC or ML systems. Write to me directly.",
     },
   },
   actions: {

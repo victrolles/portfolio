@@ -54,7 +54,8 @@ export default function Hero({ lang }) {
           {location.current[lang]}
           <span className="text-faint">/</span>
           {location.openLabel[lang]}{" "}
-          {location.open.map((c) => c.split(",")[0]).join(", ")}
+          {location.open[lang].join(", ")}
+          {location.note && <span>{location.note[lang]}</span>}
         </p>
 
         <h1
