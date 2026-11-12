@@ -9,9 +9,10 @@ function Media({ media, title, lang, className = "" }) {
     return (
       <div className={`media-frame ${className}`}>
         <video
-          className={`size-full ${fit}`}
+          className="size-full object-contain"
           src={media.src}
           poster={media.poster || undefined}
+          aria-label={title}
           controls
           muted
           loop
@@ -27,7 +28,7 @@ function Media({ media, title, lang, className = "" }) {
       <div className={`media-frame ${className}`}>
         <img
           src={media.src}
-          alt={title}
+          alt={media.alt?.[lang] ?? title}
           loading="lazy"
           className={`size-full ${fit}`}
         />

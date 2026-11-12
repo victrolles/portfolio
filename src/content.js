@@ -90,6 +90,24 @@ export const profile = {
 // Leave src empty ("") to show a "demo coming soon" placeholder.
 export const projects = [
   {
+    id: "surrogate-demo",
+    emoji: "🎛️",
+    title: { fr: "Surrogate Demo", en: "Surrogate Demo" },
+    stack: ["React", "FastAPI", "PyTorch", "WebSocket", "SciPy"],
+    accent: "from-sky-500 to-indigo-500",
+    description: {
+      fr: "Laboratoire interactif pour comparer la trajectoire d'un pendule amorti calculée avec SciPy à celle prédite par un réseau PyTorch. L'interface React permet de régler les paramètres du pendule et reçoit les trajectoires en temps réel via FastAPI et WebSocket.",
+      en: "Interactive lab for comparing the trajectory of a damped pendulum computed with SciPy against a PyTorch model's predictions. The React interface lets you adjust the pendulum parameters and streams trajectories in real time via FastAPI and WebSocket.",
+    },
+    link: "https://github.com/victrolles/surrogate-demo",
+    website: "https://surrogate-demo.victorgoudal.fr/",
+    media: {
+      type: "image",
+      src: "/videos/pendulum-surrogate.gif",
+      fit: "contain",
+    },
+  },
+  {
     id: "rl-demo",
     emoji: "🤖",
     title: { fr: "RL Demo", en: "RL Demo" },
@@ -102,6 +120,41 @@ export const projects = [
     link: "https://github.com/victrolles/RLDemo",
     website: "https://rl-demo.victorgoudal.fr/",
     media: { type: "image", src: "/videos/rl_demo.gif", poster: "" },
+  },
+  {
+    id: "polymathic",
+    emoji: "🔭",
+    title: { fr: "Polymathic AI", en: "Polymathic AI" },
+    stack: ["React", "Inference", "ML4Science", "Kubernetes"],
+    accent: "from-indigo-500 to-blue-500",
+    description: {
+      fr: "Prototype d'interface de démonstration déployé en interne pour Polymathic AI (Simons Foundation / Flatiron Institute), pour mettre en valeur leurs foundation models scientifiques. Le chercheur configure son modèle et définit un sous-ensemble de données dans lequel on sélectionne un échantillon ; le modèle renvoie alors sa prédiction et l'ensemble des sorties configurées par le chercheur. Couvre plusieurs domaines comme l'astronomie et la biologie.",
+      en: "Internal demo interface prototype built for Polymathic AI (Simons Foundation / Flatiron Institute) to showcase their scientific foundation models. A researcher configures their model and defines a data subset from which a sample is selected; the model then returns its prediction along with every output the researcher configured. Spans domains such as astronomy and biology.",
+    },
+    link: "",
+    soon: "link",
+    media: { type: "image", src: "/videos/polymathic.jpg", poster: "" },
+  },
+  {
+    id: "pendulum-surrogate",
+    emoji: "📈",
+    title: { fr: "Pendulum Surrogate", en: "Pendulum Surrogate" },
+    stack: ["Python", "SciPy", "NumPy", "PyTorch", "Matplotlib", "Weights & Biases"],
+    accent: "from-amber-500 to-orange-500",
+    description: {
+      fr: "Pipeline de simulation et d'entraînement pour un pendule amorti. SciPy génère les trajectoires de référence, puis des réseaux PyTorch apprennent à prédire l'angle et la vitesse angulaire au pas suivant. Les expériences suivies avec Weights & Biases mesurent l'accumulation des erreurs sur des trajectoires complètes.",
+      en: "Simulation and training pipeline for a damped pendulum. SciPy generates reference trajectories, then PyTorch models learn to predict the angle and angular velocity at the next time step. Experiments tracked with Weights & Biases measure how prediction errors accumulate over full trajectories.",
+    },
+    link: "https://github.com/victrolles/pendulum-surrogate",
+    media: {
+      type: "image",
+      src: "/videos/pendulum-surrogate.png",
+      fit: "contain",
+      alt: {
+        fr: "Angle du pendule au fil du temps : simulation SciPy et prédiction PyTorch.",
+        en: "Pendulum angle over time: SciPy simulation and PyTorch prediction.",
+      },
+    },
   },
   {
     id: "rl-on-atari-games",
@@ -128,20 +181,6 @@ export const projects = [
     },
     link: "https://github.com/victrolles/physics-simulations",
     media: { type: "image", src: "/videos/water_drop_simulation.gif", poster: "" },
-  },
-  {
-    id: "polymathic",
-    emoji: "🔭",
-    title: { fr: "Polymathic AI", en: "Polymathic AI" },
-    stack: ["React", "Inference", "ML4Science", "Kubernetes"],
-    accent: "from-indigo-500 to-blue-500",
-    description: {
-      fr: "Prototype d'interface de démonstration déployé en interne pour Polymathic AI (Simons Foundation / Flatiron Institute), pour mettre en valeur leurs foundation models scientifiques. Le chercheur configure son modèle et définit un sous-ensemble de données dans lequel on sélectionne un échantillon ; le modèle renvoie alors sa prédiction et l'ensemble des sorties configurées par le chercheur. Couvre plusieurs domaines comme l'astronomie et la biologie.",
-      en: "Internal demo interface prototype built for Polymathic AI (Simons Foundation / Flatiron Institute) to showcase their scientific foundation models. A researcher configures their model and defines a data subset from which a sample is selected; the model then returns its prediction along with every output the researcher configured. Spans domains such as astronomy and biology.",
-    },
-    link: "",
-    soon: "link",
-    media: { type: "image", src: "/videos/polymathic.jpg", poster: "" },
   },
   {
     id: "chatbot",
